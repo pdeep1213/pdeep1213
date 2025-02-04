@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="550.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx_clinicmanager.ClinicManagerController">
+  <tabs>
+    <Tab text="Schedule">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="250.0" prefWidth="444.0">
+               <children>
+                  <Label fx:id="console" layoutX="272.0" layoutY="145.0" />
+                  <Group layoutX="180.0" layoutY="68.0" />
+                  <Group layoutX="45.0" layoutY="39.0" />
+                  <TextArea fx:id="consele" editable="false" layoutX="10.0" layoutY="328.0" prefHeight="200.0" prefWidth="530.0" promptText="Output Text" />
+                  <Pane layoutX="10.0" layoutY="14.0" prefHeight="309.0" prefWidth="530.0" style="-fx-border-color: BLUE;">
+                     <children>
+                        <Group layoutX="33.0" layoutY="14.0">
+                           <children>
+                              <TextField fx:id="patientFirstName" layoutX="95.0" layoutY="32.0" prefHeight="26.0" prefWidth="304.0" promptText="First Name" />
+                              <DatePicker fx:id="AppointmentDate" layoutX="95.0" prefHeight="26.0" prefWidth="175.0" />
+                              <TextField fx:id="patientLastName" layoutX="95.0" layoutY="66.0" prefHeight="26.0" prefWidth="304.0" promptText="Last Name" />
+                              <Text layoutX="-19.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment Date" textAlignment="CENTER" />
+                              <Text layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient" textAlignment="CENTER" wrappingWidth="60.076171875" />
+                           </children>
+                        </Group>
+                        <DatePicker fx:id="dob" layoutX="128.0" layoutY="113.0" promptText="Date of Birth" />
+                        <HBox layoutX="128.0" layoutY="143.0" prefHeight="23.0" prefWidth="200.0">
+                           <children>
+                              <RadioButton fx:id="imaging" mnemonicParsing="false" onAction="#onServiceSelect" prefHeight="18.0" prefWidth="156.0" text="Imaging" textAlignment="CENTER">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="appointmentType" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="doctor" mnemonicParsing="false" onAction="#onServiceSelect" prefHeight="18.0" prefWidth="156.0" text="Doctor" textAlignment="CENTER" toggleGroup="$appointmentType" />
+                           </children>
+                        </HBox>
+                        <ComboBox fx:id="slot" layoutX="128.0" layoutY="186.0" prefHeight="25.0" prefWidth="100.0" promptText="Timeslot" />
+                        <ComboBox fx:id="provider" layoutX="242.0" layoutY="186.0" prefWidth="100.0" promptText="Provider" />
+                        <Button fx:id="loadProvider" layoutX="358.0" layoutY="186.0" mnemonicParsing="false" onAction="#onLoadProviderClick" prefWidth="100.0" text="Load Provider" />
+                        <Button fx:id="scheduleButton" layoutX="128.0" layoutY="232.0" mnemonicParsing="false" onAction="#onScheduleClick" prefHeight="25.0" prefWidth="100.0" text="Schedule" />
+                        <Button layoutX="242.0" layoutY="232.0" mnemonicParsing="false" onAction="#onCancelClick" prefHeight="25.0" prefWidth="100.0" text="Cancel" />
+                        <Button layoutX="358.0" layoutY="232.0" mnemonicParsing="false" onAction="#handleClear" prefHeight="25.0" prefWidth="100.0" text="Clear" />
+                        <ComboBox fx:id="radiologyRoom" layoutX="328.0" layoutY="113.0" prefWidth="150.0" promptText="Room" visible="false" />
+                     </children>
+                  </Pane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab text="Reschedule">
+          <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                      <TextField fx:id="rescheduleFirstName" layoutX="10.0" layoutY="14.0" prefWidth="200.0" promptText="First Name" />
+                      <TextField fx:id="rescheduleLastName" layoutX="220.0" layoutY="14.0" prefWidth="200.0" promptText="Last Name" />
+                      <DatePicker fx:id="rescheduleDob" layoutX="10.0" layoutY="54.0" promptText="Date of Birth" />
+                      <ComboBox fx:id="oldSlot" layoutX="10.0" layoutY="94.0" prefHeight="25.0" prefWidth="200.0" promptText="Old Timeslot" />
+                      <DatePicker fx:id="oldAppointmentDate" layoutX="220.0" layoutY="94.0" promptText="Old Appointment Date" />
+                      <ComboBox fx:id="newSlot" layoutX="10.0" layoutY="134.0" prefWidth="200.0" promptText="New Timeslot" />
+                      <Button fx:id="rescheduleButton" layoutX="220.0" layoutY="134.0" onAction="#onRescheduleClick" text="Reschedule" />
+                  <TextArea fx:id="consele_R" layoutX="10.0" layoutY="328.0" prefHeight="200.0" prefWidth="530.0" promptText="Output Text" />
+                  </children>
+              </AnchorPane>
+          </content>
+      </Tab>
+      <Tab text="Locations">
+          <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                      <Pane layoutX="10.0" layoutY="14.0" prefHeight="309.0" prefWidth="530.0">
+                     <children>
+                        <TableView fx:id="location_tbl" layoutX="40.0" layoutY="14.0" prefHeight="300.0" prefWidth="450.0">
+                           <columns>
+                              <TableColumn fx:id="col_county" prefWidth="150.0" text="County" />
+                              <TableColumn fx:id="col_city" prefWidth="150.0" text="City" />
+                              <TableColumn fx:id="col_zip" prefWidth="150.0" text="Zip" />
+                           </columns></TableView>
+                     </children></Pane>
+                  </children></AnchorPane>
+          </content>
+      </Tab>
+      <Tab text="Print">
+          <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <GridPane layoutX="127.0" layoutY="57.0" prefHeight="121.0" prefWidth="278.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <RadioButton fx:id="radiology_Print" mnemonicParsing="false" text="Radiology">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="printType" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="office_Print" mnemonicParsing="false" text="Office" toggleGroup="$printType" GridPane.columnIndex="1" />
+                        <RadioButton fx:id="pa_print" mnemonicParsing="false" text="PA" toggleGroup="$printType" GridPane.rowIndex="1" />
+                        <RadioButton fx:id="pp_Print" mnemonicParsing="false" text="PP" toggleGroup="$printType" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+                  <TextArea fx:id="consele_P" editable="false" layoutX="10.0" layoutY="309.0" prefHeight="200.0" prefWidth="530.0" promptText="Output Text" />
+                  <Text layoutX="199.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Print Appointment List By" />
+                  <Text layoutX="226.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Print Billing For" />
+                  <GridPane layoutX="134.0" layoutY="202.0" prefHeight="41.0" prefWidth="265.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="132.4" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="133.99999999999997" minWidth="10.0" prefWidth="133.99999999999997" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <RadioButton fx:id="credit_print" mnemonicParsing="false" text="Providers" toggleGroup="$printType" />
+                        <RadioButton fx:id="bill_print" mnemonicParsing="false" text="Patients" toggleGroup="$printType" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+                  <Button fx:id="printButton" layoutX="246.0" layoutY="271.0" mnemonicParsing="false" onAction="#OnPrintButton" text="Print" />
+               </children></AnchorPane>
+          </content>
+      </Tab>
+  </tabs>
+</TabPane>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/BackGround"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="93dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="4dp"
+            android:contentDescription="@string/logo_Description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ru_logo" />
+
+        <TextView
+            android:layout_width="93dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/alfa_slab_one"
+            android:text="@string/Menu"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView2"
+            app:layout_constraintHorizontal_bias="0.362"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/cart"
+            android:onClick="onCartClick"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/shopping_cart"
+            tools:srcCompat="@drawable/shopping_cart" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageButton
+        android:id="@+id/ny_button"
+        android:layout_width="164dp"
+        android:layout_height="155dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="80dp"
+        android:contentDescription="@string/ny_style"
+        android:onClick="OnNYClick"
+        android:src="@drawable/ny_style"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        tools:src="@drawable/ny_style"
+        tools:srcCompat="@drawable/ny_style" />
+
+    <ImageButton
+        android:id="@+id/build_own_button"
+        android:layout_width="164dp"
+        android:layout_height="155dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="80dp"
+        android:contentDescription="@string/build_your_own"
+        android:onClick="OnBYOClick"
+        android:src="@drawable/build_your_own"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        tools:srcCompat="@drawable/build_your_own" />
+
+    <ImageButton
+        android:id="@+id/all_Order_Button"
+        android:layout_width="164dp"
+        android:layout_height="155dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/all_orders"
+        android:onClick="onALlOrderClick"
+        android:src="@drawable/all_orders"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        tools:srcCompat="@drawable/all_orders" />
+
+    <ImageButton
+        android:id="@+id/ch_button"
+        android:layout_width="164dp"
+        android:layout_height="155dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/chicago_style"
+        android:onClick="OnCHClick"
+        android:src="@drawable/ch_style"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        tools:srcCompat="@drawable/ch_style" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="164dp"
+        android:layout_height="26dp"
+        android:background="@color/BackGround"
+        android:fontFamily="@font/alfa_slab_one"
+        android:onClick="OnNYClick"
+        android:text="@string/ny_style"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/ny_button"
+        app:layout_constraintTop_toBottomOf="@+id/ny_button" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="164dp"
+        android:layout_height="26dp"
+        android:background="@color/BackGround"
+        android:fontFamily="@font/alfa_slab_one"
+        android:onClick="OnBYOClick"
+        android:text="@string/build_your_own"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/build_own_button"
+        app:layout_constraintTop_toBottomOf="@+id/build_own_button" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="164dp"
+        android:layout_height="26dp"
+        android:background="@color/BackGround"
+        android:fontFamily="@font/alfa_slab_one"
+        android:onClick="onALlOrderClick"
+        android:text="@string/all_orders"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/all_Order_Button"
+        app:layout_constraintTop_toBottomOf="@+id/all_Order_Button" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="164dp"
+        android:layout_height="26dp"
+        android:background="@color/BackGround"
+        android:fontFamily="@font/alfa_slab_one"
+        android:onClick="OnCHClick"
+        android:text="@string/chicago_style"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/ch_button"
+        app:layout_constraintTop_toBottomOf="@+id/ch_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
